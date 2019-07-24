@@ -1,0 +1,691 @@
+{
+    "type": "post",
+    "url": "/edc_detail/add",
+    "title": "Add Edc detail.",
+    "version": "0.1.0",
+    "name": "Addedc_detail",
+    "group": "edc_detail",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "X-Api-Key",
+            "description": "<p>Edc detail unique access-key.</p>"
+          }
+                  ]
+      }
+    },
+    "permission": [
+      {
+        "name": "Edc detail Cant be Accessed permission name : api_edc_detail_add"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+                    {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "MERCHANT_DBA_NAME",
+            "description": "<p>Mandatory MERCHANT_DBA_NAME of Edc details Input MERCHANT DBA NAME Max Length : 255..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "STATUS_EDC",
+            "description": "<p>Mandatory STATUS_EDC of Edc details Input STATUS EDC Max Length : 11..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "CITY",
+            "description": "<p>Mandatory CITY of Edc details Input CITY Max Length : 255..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "ID_NUMBER",
+            "description": "<p>Mandatory ID_NUMBER of Edc details Input ID NUMBER Max Length : 11..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "MSO",
+            "description": "<p>Mandatory MSO of Edc details Input MSO Max Length : 25..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "SOURCE_CODE",
+            "description": "<p>Mandatory SOURCE_CODE of Edc details Input SOURCE CODE Max Length : 255..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "POS_1",
+            "description": "<p>Mandatory POS_1 of Edc details Input POS 1 Max Length : 11..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "WILAYAH",
+            "description": "<p>Mandatory WILAYAH of Edc details Input WILAYAH Max Length : 100..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "CHANNEL",
+            "description": "<p>Mandatory CHANNEL of Edc details Input CHANNEL Max Length : 100..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "TYPE_MID",
+            "description": "<p>Mandatory TYPE_MID of Edc details Input TYPE MID Max Length : 100..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "OPEN_DATE",
+            "description": "<p>Mandatory OPEN_DATE of Edc details .</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "TAHUN",
+            "description": "<p>Mandatory TAHUN of Edc details Input TAHUN Max Length : 4..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "BULAN",
+            "description": "<p>Mandatory BULAN of Edc details Input BULAN Max Length : 5..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Generate_at",
+            "description": "<p>Mandatory generate_at of Edc details .</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Update_at",
+            "description": "<p>Mandatory update_at of Edc details .</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "Status",
+            "description": "<p>status response api.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Message",
+            "description": "<p>message response api.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "ValidationError",
+            "description": "<p>Error validation.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 403 Not Acceptable",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "application/controllers/api/Edc_detail.php",
+    "groupTitle": "Edc detail"
+  },
+  {
+    "type": "get",
+    "url": "/edc_detail/all",
+    "title": "Get all Edc details.",
+    "version": "0.1.0",
+    "name": "Alledc_detail",
+    "group": "edc_detail",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "X-Api-Key",
+            "description": "<p>Edc details unique access-key.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "X-Token",
+            "description": "<p>Edc details unique token.</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "{} Cant be Accessed permission name : api_Edc detail_all"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+         
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "Field",
+            "defaultValue": "All Field",
+            "description": "<p>Optional field of Edc details.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "Start",
+            "defaultValue": "0",
+            "description": "<p>Optional start index of Edc details.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "Limit",
+            "defaultValue": "10",
+            "description": "<p>Optional limit data of Edc details.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "Status",
+            "description": "<p>status response api.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Message",
+            "description": "<p>message response api.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "Data",
+            "description": "<p>data of Edc detail.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "NoDataEdc detail",
+            "description": "<p>Edc detail data is nothing.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 403 Not Acceptable",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "application/controllers/api/Edc detail.php",
+    "groupTitle": "Edc detail"
+  },
+  {
+    "type": "post",
+    "url": "/Edc detail/delete",
+    "title": "Delete Edc detail.",
+    "version": "0.1.0",
+    "name": "Deleteedc_detail",
+    "group": "edc_detail",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "X-Api-Key",
+            "description": "<p>Edc details unique access-key.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "X-Token",
+            "description": "<p>Edc details unique token.</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "Edc detail Cant be Accessed permission name : api_Edc detail_delete"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "Id",
+            "description": "<p>Mandatory id of Edc details .</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "Status",
+            "description": "<p>status response api.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Message",
+            "description": "<p>message response api.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "ValidationError",
+            "description": "<p>Error validation.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 403 Not Acceptable",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "application/controllers/api/Edc detail.php",
+    "groupTitle": "Edc detail"
+  },
+  {
+    "type": "get",
+    "url": "/Edc detail/detail",
+    "title": "Detail Edc detail.",
+    "version": "0.1.0",
+    "name": "Detailedc_detail",
+    "group": "edc_detail",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "X-Api-Key",
+            "description": "<p>Edc details unique access-key.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "X-Token",
+            "description": "<p>Edc details unique token.</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "Edc detail Cant be Accessed permission name : api_Edc detail_detail"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "Id",
+            "description": "<p>Mandatory id of Edc details.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "Status",
+            "description": "<p>status response api.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Message",
+            "description": "<p>message response api.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "Data",
+            "description": "<p>data of Edc detail.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "Edc detailNotFound",
+            "description": "<p>Edc detail data is not found.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 403 Not Acceptable",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "application/controllers/api/Edc detail.php",
+    "groupTitle": "Edc detail"
+  },
+  {
+    "type": "post",
+    "url": "/Edc detail/update",
+    "title": "Update Edc detail.",
+    "version": "0.1.0",
+    "name": "Updateedc_detail",
+    "group": "edc_detail",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "X-Api-Key",
+            "description": "<p>Edc details unique access-key.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "X-Token",
+            "description": "<p>Edc details unique token.</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "Edc detail Cant be Accessed permission name : api_Edc detail_update"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+                    {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "MERCHANT_DBA_NAME",
+            "description": "<p>Mandatory MERCHANT_DBA_NAME of Edc details Input MERCHANT DBA NAME Max Length : 255..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "STATUS_EDC",
+            "description": "<p>Mandatory STATUS_EDC of Edc details Input STATUS EDC Max Length : 11..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "CITY",
+            "description": "<p>Mandatory CITY of Edc details Input CITY Max Length : 255..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "ID_NUMBER",
+            "description": "<p>Mandatory ID_NUMBER of Edc details Input ID NUMBER Max Length : 11..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "MSO",
+            "description": "<p>Mandatory MSO of Edc details Input MSO Max Length : 25..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "SOURCE_CODE",
+            "description": "<p>Mandatory SOURCE_CODE of Edc details Input SOURCE CODE Max Length : 255..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "POS_1",
+            "description": "<p>Mandatory POS_1 of Edc details Input POS 1 Max Length : 11..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "WILAYAH",
+            "description": "<p>Mandatory WILAYAH of Edc details Input WILAYAH Max Length : 100..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "CHANNEL",
+            "description": "<p>Mandatory CHANNEL of Edc details Input CHANNEL Max Length : 100..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "TYPE_MID",
+            "description": "<p>Mandatory TYPE_MID of Edc details Input TYPE MID Max Length : 100..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "OPEN_DATE",
+            "description": "<p>Mandatory OPEN_DATE of Edc details .</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "TAHUN",
+            "description": "<p>Mandatory TAHUN of Edc details Input TAHUN Max Length : 4..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "BULAN",
+            "description": "<p>Mandatory BULAN of Edc details Input BULAN Max Length : 5..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Generate_at",
+            "description": "<p>Mandatory generate_at of Edc details .</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Update_at",
+            "description": "<p>Mandatory update_at of Edc details .</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "Status",
+            "description": "<p>status response api.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Message",
+            "description": "<p>message response api.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "ValidationError",
+            "description": "<p>Error validation.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 403 Not Acceptable",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "application/controllers/api/Edc detail.php",
+    "groupTitle": "Edc detail"
+  }

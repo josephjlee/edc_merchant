@@ -1,0 +1,115 @@
+use mattools_db;
+-- select count(*) from edc_detail ;
+
+INSERT IGNORE INTO edc_detail
+
+SELECT 
+
+ a.MID,  
+ a.MERCHANT_DBA_NAME, 
+ a.STATUS_EDC, 
+				a.CITY, 
+				a.ACCOUNT_NO_2 as ID_NUMBER,
+  a.MSO,	          
+ a.SOURCE_CODE,	          
+
+-- =======POS1
+CASE
+WHEN CAST(a.POS1  AS SIGNED) <= 100 THEN 1
+	ELSE LEFT(CAST(a.POS1  AS SIGNED),1)
+
+END
+AS
+POS_1,
+-- =======POS1
+
+-- ======WILAYAH
+CASE
+
+	WHEN a.MSO=mc.MSO THEN mc.Wilayah
+    
+    
+	WHEN SUBSTRING(a.MID,2,2)='01' THEN 'WMD'
+	WHEN SUBSTRING(a.MID,2,2)='02' THEN 'WPD'
+	WHEN SUBSTRING(a.MID,2,2)='03' THEN 'WPL'
+	WHEN SUBSTRING(a.MID,2,2)='04' THEN 'WBN'
+	WHEN SUBSTRING(a.MID,2,2)='05' THEN 'WSM'
+	WHEN SUBSTRING(a.MID,2,2)='06' THEN 'WSY'
+	WHEN SUBSTRING(a.MID,2,2)='07' THEN 'WMK'
+	WHEN SUBSTRING(a.MID,2,2)='08' THEN 'WDR'
+	WHEN SUBSTRING(a.MID,2,2)='09' THEN 'WBJ'
+	WHEN SUBSTRING(a.MID,2,2)='10' THEN 'WJS'
+	WHEN SUBSTRING(a.MID,2,2)='11' THEN 'WMO'
+	WHEN SUBSTRING(a.MID,2,2)='12' THEN 'WJK'
+	WHEN SUBSTRING(a.MID,2,2)='14' THEN 'WJB'
+	WHEN SUBSTRING(a.MID,2,2)='15' THEN 'WJY'
+	WHEN SUBSTRING(a.MID,2,2)='16' THEN 'WPU'
+	WHEN SUBSTRING(a.MID,2,2)='17' THEN 'WYK'
+	WHEN SUBSTRING(a.MID,2,2)='18' THEN 'WMA'    
+  	ELSE NULL
+END
+as WILAYAH,
+-- ======WILAYAH
+
+-- =======CHANNEL
+CASE
+	WHEN a.MERCHANT_DBA_NAME like'%EXH%'  THEN 'EXH'
+	WHEN LEFT(a.MID,1)=5 THEN 'SUPPORT'
+	WHEN LEFT(a.MID,1)=8 THEN 'E-COMMERS'
+	WHEN LEFT(a.MID,1)=9 THEN 'MPOS'
+  -- 	ELSE '???'  -- ????????????????????
+  	ELSE mc.Channel   
+END
+as CHANNEL,
+-- =======CHANNEL
+
+-- =======TYPE_MID
+ CASE
+	WHEN LEFT(a.SOURCE_CODE,1)='U'  THEN 'YAP' 
+	WHEN LEFT(a.MID,1)='3'  THEN 'YAP'    
+	WHEN LEFT(a.MID,1)='2'  THEN 'EDC'
+	WHEN LEFT(a.MID,1)='5'  THEN 'EBK'
+	WHEN LEFT(a.MID,1)='8'  THEN 'EBK'
+	WHEN LEFT(a.MID,1)='9'  THEN 'EBK'
+
+    
+  	ELSE '???'
+END
+as TYPE_MID,
+-- =======TYPE_MID
+-- ,SUM(POS_1)
+-- ============
+STR_TO_DATE(concat(concat(20,SUBSTRING(a.OPENDATE,5,2)),'/',SUBSTRING(a.OPENDATE,3,2),'/',SUBSTRING(a.OPENDATE,1,2)), '%Y/%m/%d') as 
+OPEN_DATE,
+EXTRACT(YEAR FROM STR_TO_DATE(concat(concat(20,SUBSTRING(a.OPENDATE,5,2)),'/',SUBSTRING(a.OPENDATE,3,2),'/',SUBSTRING(a.OPENDATE,1,2)), '%Y/%m/%d') ) as
+TAHUN,
+EXTRACT(MONTH FROM STR_TO_DATE(concat(concat(20,SUBSTRING(a.OPENDATE,5,2)),'/',SUBSTRING(a.OPENDATE,3,2),'/',SUBSTRING(a.OPENDATE,1,2)), '%Y/%m/%d') ) as
+BULAN,
+
+NOW() generate_at,
+NOW() update_at
+
+
+ 
+FROM mismer_all a
+
+LEFT JOIN mso_channel mc ON a.MSO=mc.MSO
+
+WHERE 
+-- LEFT(a.MID,1) IN (2,3,5,8,9) OR LEFT(a.SOURCE_CODE,1)='U'
+LEFT(a.MID,1) =2 AND LEFT(a.SOURCE_CODE,1)!='U' 
+-- AND a.MSO!='912' AND LEFT(a.MSO,1)!='Q'
+
+ AND EXTRACT(YEAR FROM STR_TO_DATE(concat(concat(20,SUBSTRING(a.OPENDATE,5,2)),'/',SUBSTRING(a.OPENDATE,3,2),'/',SUBSTRING(a.OPENDATE,1,2)), '%Y/%m/%d') )=2019
+ -- AND EXTRACT(MONTH FROM STR_TO_DATE(concat(concat(20,SUBSTRING(a.OPENDATE,5,2)),'/',SUBSTRING(a.OPENDATE,3,2),'/',SUBSTRING(a.OPENDATE,1,2)), '%Y/%m/%d') )=11
+-- AND OPENDATE='191018'
+
+-- GROUP BY WILAYAH,CHANNEL,TYPE_MID
+;
+
+-- select count(*) from edc_detail where TAHUN=2019-- 4946
+-- select count(*) from edc_detail where TAHUN=2018 AND BULAN=12 -- 4109 --4303
+
+-- select count(*) from edc_detail WHERE CHANNEL IS NULL;
+-- drop table edc_detail;
+-- ==========

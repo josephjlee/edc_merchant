@@ -1,0 +1,537 @@
+{
+    "type": "post",
+    "url": "/mso_channel/add",
+    "title": "Add Mso channel.",
+    "version": "0.1.0",
+    "name": "Addmso_channel",
+    "group": "mso_channel",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "X-Api-Key",
+            "description": "<p>Mso channel unique access-key.</p>"
+          }
+                  ]
+      }
+    },
+    "permission": [
+      {
+        "name": "Mso channel Cant be Accessed permission name : api_mso_channel_add"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+                    {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Wilayah",
+            "description": "<p>Mandatory Wilayah of Mso channels Input Wilayah Max Length : 55..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "KodeWilayah",
+            "description": "<p>Mandatory KodeWilayah of Mso channels Input KodeWilayah Max Length : 55..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "MSO",
+            "description": "<p>Mandatory MSO of Mso channels Input MSO Max Length : 55..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Channel",
+            "description": "<p>Mandatory Channel of Mso channels Input Channel Max Length : 55..</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "Status",
+            "description": "<p>status response api.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Message",
+            "description": "<p>message response api.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "ValidationError",
+            "description": "<p>Error validation.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 403 Not Acceptable",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "application/controllers/api/Mso_channel.php",
+    "groupTitle": "Mso channel"
+  },
+  {
+    "type": "get",
+    "url": "/mso_channel/all",
+    "title": "Get all Mso channels.",
+    "version": "0.1.0",
+    "name": "Allmso_channel",
+    "group": "mso_channel",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "X-Api-Key",
+            "description": "<p>Mso channels unique access-key.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "X-Token",
+            "description": "<p>Mso channels unique token.</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "{} Cant be Accessed permission name : api_Mso channel_all"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+         
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "Field",
+            "defaultValue": "All Field",
+            "description": "<p>Optional field of Mso channels.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "Start",
+            "defaultValue": "0",
+            "description": "<p>Optional start index of Mso channels.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "Limit",
+            "defaultValue": "10",
+            "description": "<p>Optional limit data of Mso channels.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "Status",
+            "description": "<p>status response api.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Message",
+            "description": "<p>message response api.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "Data",
+            "description": "<p>data of Mso channel.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "NoDataMso channel",
+            "description": "<p>Mso channel data is nothing.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 403 Not Acceptable",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "application/controllers/api/Mso channel.php",
+    "groupTitle": "Mso channel"
+  },
+  {
+    "type": "post",
+    "url": "/Mso channel/delete",
+    "title": "Delete Mso channel.",
+    "version": "0.1.0",
+    "name": "Deletemso_channel",
+    "group": "mso_channel",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "X-Api-Key",
+            "description": "<p>Mso channels unique access-key.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "X-Token",
+            "description": "<p>Mso channels unique token.</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "Mso channel Cant be Accessed permission name : api_Mso channel_delete"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "Id",
+            "description": "<p>Mandatory id of Mso channels .</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "Status",
+            "description": "<p>status response api.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Message",
+            "description": "<p>message response api.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "ValidationError",
+            "description": "<p>Error validation.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 403 Not Acceptable",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "application/controllers/api/Mso channel.php",
+    "groupTitle": "Mso channel"
+  },
+  {
+    "type": "get",
+    "url": "/Mso channel/detail",
+    "title": "Detail Mso channel.",
+    "version": "0.1.0",
+    "name": "Detailmso_channel",
+    "group": "mso_channel",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "X-Api-Key",
+            "description": "<p>Mso channels unique access-key.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "X-Token",
+            "description": "<p>Mso channels unique token.</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "Mso channel Cant be Accessed permission name : api_Mso channel_detail"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "Id",
+            "description": "<p>Mandatory id of Mso channels.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "Status",
+            "description": "<p>status response api.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Message",
+            "description": "<p>message response api.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "Data",
+            "description": "<p>data of Mso channel.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "Mso channelNotFound",
+            "description": "<p>Mso channel data is not found.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 403 Not Acceptable",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "application/controllers/api/Mso channel.php",
+    "groupTitle": "Mso channel"
+  },
+  {
+    "type": "post",
+    "url": "/Mso channel/update",
+    "title": "Update Mso channel.",
+    "version": "0.1.0",
+    "name": "Updatemso_channel",
+    "group": "mso_channel",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "X-Api-Key",
+            "description": "<p>Mso channels unique access-key.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "X-Token",
+            "description": "<p>Mso channels unique token.</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "Mso channel Cant be Accessed permission name : api_Mso channel_update"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+                    {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Wilayah",
+            "description": "<p>Mandatory Wilayah of Mso channels Input Wilayah Max Length : 55..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "KodeWilayah",
+            "description": "<p>Mandatory KodeWilayah of Mso channels Input KodeWilayah Max Length : 55..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "MSO",
+            "description": "<p>Mandatory MSO of Mso channels Input MSO Max Length : 55..</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Channel",
+            "description": "<p>Mandatory Channel of Mso channels Input Channel Max Length : 55..</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "Status",
+            "description": "<p>status response api.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Message",
+            "description": "<p>message response api.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "ValidationError",
+            "description": "<p>Error validation.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 403 Not Acceptable",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "application/controllers/api/Mso channel.php",
+    "groupTitle": "Mso channel"
+  }

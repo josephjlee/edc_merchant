@@ -1,0 +1,1 @@
+bash docker.sh build && docker.sh push && docker.sh rmi && docker.sh pull && docker.sh remove && docker.sh start
