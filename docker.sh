@@ -52,7 +52,7 @@ case $CMD in
         CMD="$CMD -d"
         CMD="$CMD -v "${PWD}:/var/www/html""
         CMD="$CMD --name $CONTAINER_NAME_DEV"
-        CMD="$CMD -p 8181:80"
+        CMD="$CMD -p 82:80"
         CMD="$CMD -td $IMAGE_NAME:$IMAGE_TAG"
         echo "$CMD"
         eval $CMD
